@@ -66,25 +66,34 @@ input{
 }
 
 .buttonNormal{
-    background:    #15d798;
-    border:        5px solid #09f0a5;
-    border-radius: 1000px;
-    padding:       15px 20px;
-    color:         #ffffff;
-    display:       inline-block;
-    font:          normal bold 27px/1 "Roboto", sans-serif;
-    text-align:    center;
+background:    #3d85c6;
+border-radius: 15%;
+padding:       15px 25px;
+color:         #ffffff;
+display:       inline-block;
+font-size:     1.5em;
+text-align:    center;
+border: 0px;
 }
 
+.buttonNormal:hover {
+    background-color: #5091ca;
+    color: #ffffff;
+  }
+.buttonNormal:active {
+    background-color: #296aa3;
+    color: #ffffff;
+  }
+
 .buttonHighlight{
-    background:    #15d798;
-    border:        5px solid #09f0a5;
-    border-radius: 1000px;
-    padding:       15px 20px;
-    color:         #ffffff;
-    display:       inline-block;
-    font:          normal bold 27px/1 "Roboto", sans-serif;
-    text-align:    center;
+background:    #3d85c6;
+background:    linear-gradient(#3d85c6, #3577b4);
+border-radius: 1000px;
+box-shadow:    -2px 2px #444444;
+padding:       24px 31px;
+color:         #ffffff;
+display:       inline-block;
+text-align:    center;
 }
 
 
