@@ -31,7 +31,8 @@ $(document).ready(function () {
   function counterUP(type) {
     var countUP = $("#counter-" + type).val();
     countUP = parseInt(countUP);
-    if (countUP >= 6) return;
+    if (countUP >= 6 && type === "length") return;
+    if(countUP >= 8) return;
     countUP++;
     $("#counter-" + type).val(countUP);
   }
@@ -39,7 +40,7 @@ $(document).ready(function () {
   function counterDOWN(type) {
     var counterDOWN = $("#counter-" + type).val();
     counterDOWN = parseInt(counterDOWN);
-    if (counterDOWN <= 1) return;
+    if (counterDOWN <= 4) return;
     counterDOWN--;
     $("#counter-" + type).val(counterDOWN);
   }
