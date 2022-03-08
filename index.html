@@ -4,35 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <title>Wordify</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/redesign/styles.css">
+    
+    <title>Document</title>
 </head>
 <body>
-    <div class="container position-absolute top-50 start-50 translate-middle">
-        
-        <div class="four position-absolute top-50 start-50 translate-middle"><button class="buttonNormal">4</button></div>
-        <div class="five position-absolute top-50 start-50 translate-middle middle-up"><span class="labelTitle">Ordlængde</span><span class="labelNumber"><button class="buttonNormal">5</button></span></div>
-        <div class="six position-absolute top-50 start-50 translate-middle"><button class="buttonNormal">6</button></div>
+    <div class="position-absolute top-0 start-50 translate-middle-x">
+    <h1>WORDIFY</h1>
+    </div>
 
-        <div class="fourGuess position-absolute top-50 start-50 translate-middle"><button class="buttonNormal">4</button></div>
-        <div class="fiveGuess position-absolute top-50 start-50 translate-middle"><button class="buttonNormal">5</button></div>
-        <div class="sixGuess position-absolute top-50 start-50 translate-middle middle-up"><span class="labelTitle">Antal gæt</span><span class="labelNumber"><button class="buttonNormal">6</button></span></div>
-        <div class="sevenGuess position-absolute top-50 start-50 translate-middle"><button class="buttonNormal">7</button></div>
-        <div class="eightGuess position-absolute top-50 start-50 translate-middle"><button class="buttonNormal">8</button></div>
-
-        <!--<div class="inviteLink position-absolute top-50 start-50 translate-middle">elræelærelrælerlelræe</div>-->
-        <div class="input-group mb-3 inviteLink">
-            <input type="text" id="inviteLink" class="form-control" placeholder="Invite link til deling" aria-label="Invite link til deling" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" onclick="copyToClipboard()" type="button" id="button-addon2">Kopier</button>
-          </div>
-
-        <div class="playButton position-absolute top-50 start-50 translate-middle"><button class="buttonNormal">Play</button></div>
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="card text-center">
+        <div class="card-body">
+            <p class="card-text">Ord Længde</p>
+                <fieldset data-quantity="">
+                    <legend>Change quantity</legend>
+                <button type="button" title="Down" class="sub">Down</button><button type="button" title="Up" class="add">Up</button></fieldset>
+                <p class="card-text">Antal Gæt</p>
+                <fieldset data-quantity="">
+                    <legend>Change quantity</legend>
+                <button type="button" title="Down" class="sub">Down</button><button type="button" title="Up" class="add">Up</button></fieldset>
+                
+                  <div class="input-group mb-3 inviteLink">
+                <input type="text" id="inviteLink" class="form-control" placeholder="Invite link til deling" aria-label="Invite link til deling" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" onclick="copyToClipboard()" type="button" id="button-addon2">Kopier</button> 
+        </div>
+            <a href="#" class="btn btn-primary">Play</a>
+        </div>
+        <div class="card-footer text-muted">
+         <a href="">Hjælp</a>
+        </div>
       </div>
+    </div>
+    <script src="/redesign/script.js"></script>
+    <script type="module">
+        import QuantityInput from './quantity.js';
+        (function(){
+      let quantities = document.querySelectorAll('[data-quantity]');
+    
+      if (quantities instanceof Node) quantities = [quantities];
+      if (quantities instanceof NodeList) quantities = [].slice.call(quantities);
+      if (quantities instanceof Array) {
+        quantities.forEach(div => (div.quantity = new QuantityInput(div, 'Down', 'Up')));
+      }
+    })();
+      </script>
 
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
