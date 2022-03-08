@@ -8,12 +8,6 @@ $(document).ready(function () {
     }
   });
 
-  function generateUUID() {
-    $("#inviteLink").val(uuidv4());
-  }
-
-  generateUUID();
-
   function copyToClipboard() {
     /* Tager input */
     var copyText = document.getElementById("inviteLink");
@@ -29,4 +23,34 @@ $(document).ready(function () {
     /* Ændrer teksten på knappen, som confirmation */
     document.getElementById("button-addon2").innerText = "Kopieret!";
   }
+
+  $("#button-addon2").click(function () { 
+    copyToClipboard()
+  });
+
+  function counterUP(type) {
+    var countUP = $("#counter-" + type).val();
+    countUP = parseInt(countUP);
+    if (countUP >= 6) return;
+    countUP++;
+    $("#counter-" + type).val(countUP);
+  }
+
+  function counterDOWN(type) {
+    var counterDOWN = $("#counter-" + type).val();
+    counterDOWN = parseInt(counterDOWN);
+    if (counterDOWN <= 1) return;
+    counterDOWN--;
+    $("#counter-" + type).val(counterDOWN);
+  }
+
+  $("#counterUP-length, #counterUP-quantity").click(function () {
+    type = $(this).data("type");
+    counterUP(type)
+  });
+
+  $("#counterDOWN-length, #counterDOWN-quantity").click(function () { 
+    type = $(this).data("type");
+    counterDOWN(type)
+  });
 });
