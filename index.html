@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     
-    <title>Document</title>
+    <title>Wordify</title>
 </head>
 <body>
     <div class="position-absolute top-0 start-50 translate-middle-x">
@@ -21,17 +21,17 @@
             <p class="card-text">Ord Længde</p>
                 <fieldset data-quantity="">
                     <legend>Change quantity</legend>
-                <button type="button" title="Down" class="sub" id="counterDOWN-length" data-type="length">Down</button><input name="length" id="counter-length" value="4"><button type="button" title="Up" class="add" id="counterUP-length" data-type="length">Up</button></fieldset>
+                <button type="button" title="Down" class="sub" id="counterDOWN-length" data-type="length">Down</button><input name="length" type="number" id="counter-length" min="4" max="6" value="4" readonly><button type="button" title="Up" class="add" id="counterUP-length" data-type="length">Up</button></fieldset>
                 <p class="card-text">Antal Gæt</p>
                 <fieldset data-quantity="">
                     <legend>Change quantity</legend>
-                <button type="button" title="Down" class="sub" id="counterDOWN-quantity" data-type="quantity">Down</button><input name="quantity" id="counter-quantity" value="4"><button type="button" title="Up" class="add" id="counterUP-quantity" data-type="quantity">Up</button></fieldset>
+                <button type="button" title="Down" class="sub" id="counterDOWN-quantity" data-type="quantity">Down</button><input name="quantity" type="number" min="4" max="8" id="counter-quantity" value="4" readonly><button type="button" title="Up" class="add" id="counterUP-quantity" data-type="quantity">Up</button></fieldset>
                 
                   <div class="input-group mb-3 inviteLink">
                 <input type="text" id="inviteLink" class="form-control" placeholder="Invite link til deling" aria-label="Invite link til deling" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2">Kopier</button> 
         </div>
-            <a href="#" class="btn btn-primary">Play</a>
+            <a href="game.html" class="btn btn-primary">Play</a>
         </div>
         <div class="card-footer text-muted">
          <a href="">Hjælp</a>
