@@ -1,128 +1,144 @@
-body{
-    background-color: #35363A;
-    color:#969BA1;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
-
-
-.container {  display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 5px 0px;
-    grid-auto-flow: row;
-    justify-content: space-between;
-    align-content: space-between;
-    justify-items: center;
-    grid-template-areas:
-      "four . five . six"
-      "fourGuess fiveGuess sixGuess sevenGuess eightGuess"
-      ". inviteLink inviteLink inviteLink ."
-      ". playButton playButton playButton .";
-    width: 85%;
-    height: 80%;
+:root {
+    --red-color: #ED185A;
+    --light-bg: #364254;
+    --mid-bg: #313C4C;
+    --dark-bg:#222A36;
   }
-  
-  .four { grid-area: four; }
-  
-  .five { grid-area: five; }
-  
-  .six { grid-area: six; }
-  
-  .fourGuess { grid-area: fourGuess; }
-  
-  .fiveGuess { grid-area: fiveGuess; }
-  
-  .sixGuess { grid-area: sixGuess; }
-  
-  .sevenGuess { grid-area: sevenGuess; }
-  
-  .eightGuess { grid-area: eightGuess; }
-  
-  .playButton { grid-area: playButton; }
-  
-  .inviteLink { grid-area: inviteLink; }
 
-
-
-  
-
-  
-/*
-div{
-    border: 1px;
-    border-style: solid;
+body {
+    font-family: 'Fjalla One', sans-serif;
+    text-transform: uppercase;
+    padding: 3em;
+    background-color: var(--dark-bg);
+    color:#fff;
+  }
+h1{
+    position: relative;
+    top:5vh;
+}  
+.card{
+    background-color: var(--mid-bg);
 }
-*/
-
-
-
-input{
-    line-height: 10px;
-    height: fit-content;
+.card-footer{
+    background-color: var(--light-bg)
 }
-
+.card-footer a{
+    color: var(--red-color);
+}
 #button-addon2{
-    height:fit-content;
+    color:var(--red-color);
 }
 
-.buttonNormal{
-background:    #3d85c6;
-border-radius: 15%;
-padding:       15px 25px;
-color:         #ffffff;
-display:       inline-block;
-font-size:     1.5em;
-text-align:    center;
-border: 0px;
-}
 
-.buttonNormal:hover {
-    background-color: #5091ca;
-    color: #ffffff;
+  
+  [data-quantity] {
+    position: relative;
+    width: 100%;
+    max-width: 11rem;
+    padding: 0;
+    margin: 30px 0;
+    border: 0;
   }
-.buttonNormal:active {
-    background-color: #296aa3;
-    color: #ffffff;
+  
+  [data-quantity] legend {
+    display: none;
+  }
+  
+  [data-quantity] input {
+    font-size: 18px;
+    height: 4rem;
+    padding: 0 4rem;
+    border-radius: 2rem;
+    border: 0;
+    background: #fff;
+    color: #222;
+    box-shadow: 0 10px 65px -10px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: lighter;
+  }
+  
+  [data-quantity] input:focus {
+    outline: none;
+    box-shadow: 0 5px 55px -10px rgba(0, 0, 0, 0.2), 0 0 4px #3fb0ff; /* Allows border radius on focus */
+  }
+  
+  [data-quantity] input[type=number]::-webkit-inner-spin-button,
+  [data-quantity] input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  [data-quantity] input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  [data-quantity] button {
+    position: absolute;
+    width: 2.8rem;
+    height: 2.8rem;
+    top: 0.6rem;
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: #fff
+      url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><path d="M17 25h16M67 25h16M75 17v16" fill="none" stroke="rgb(59,69,66)" stroke-width="1.5px" stroke-linecap="round" stroke-linejoin="round" /></svg>')
+      no-repeat 0 0;
+    background-size: 5.6rem 2.8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-indent: 100%;
+    border-radius: 1.4rem;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    opacity: 0.5;
+  }
+  
+  [data-quantity] button:active {
+    background-position-y: 1px;
+    box-shadow: inset 0 2px 12px -4px #c5d1d9;
+  }
+  
+  [data-quantity] button:focus {
+    outline: none;
+  }
+  
+  [data-quantity] button:hover {
+    opacity: 1;
+  }
+  
+  [data-quantity] button.sub {
+    left: 0.6rem;
+  }
+  
+  [data-quantity] button.add {
+    right: 0.6rem;
+    background-position-x: -2.8rem;
   }
 
-.buttonHighlight{
-background:    #3d85c6;
-background:    linear-gradient(#3d85c6, #3577b4);
-border-radius: 1000px;
-box-shadow:    -2px 2px #444444;
-padding:       24px 31px;
-color:         #ffffff;
-display:       inline-block;
-text-align:    center;
-}
+ 
 
-
-/* If the screen size is 601px or more, PC!!! */ 
-@media only screen and (min-width: 601px) {
-    .labelTitle{
+  /* PC */
+@media only screen and (min-width: 541px) {
+    fieldset{
+        position: absolute;
+        top: 50%;
+        left: 16%;
+        }
+    .card-text{
         position: relative;
-        right: -1.2vw;
-        top: -2.5vh;
-        white-space: nowrap;
-    }
-    .labelNumber{
-        position: relative;
-        right: -1.5vw;
-        top: -1.5vh;
+        top: 2.4vh;
     }
   }
   
-  /* If the screen size is 600px or less, PHONE!! */
-  @media only screen and (max-width: 991px) {
-    .labelTitle{
+  /* PHONE */
+  @media only screen and (max-width: 540px) {
+    fieldset{
         position: relative;
-        right: 0vw;
-        top: -2.5vh;
-        white-space: nowrap;
-    }
-    .labelNumber{
-        position: relative;
-        right: 0vw;
-        top: -1.5vh;
-    }
+        left: 2vw;
+        }
   }
