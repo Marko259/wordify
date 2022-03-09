@@ -1,3 +1,8 @@
+const element = document.getElementById('inviteLink')
+element.addEventListener("click", () => {
+	document.getElementById("play-btn").classList.remove('btn-primary-dis');
+});
+
 $(document).ready(function () {
   document.addEventListener("click", function (event) {
     //Hvis der klikkes på knappen, skal der ikke ændres
@@ -21,7 +26,13 @@ $(document).ready(function () {
     navigator.clipboard.writeText(copyText.value);
 
     /* Ændrer teksten på knappen, som confirmation */
-    document.getElementById("button-addon2").innerText = "Kopieret!";
+    //document.getElementById("button-addon2").innerText = "Kopieret!";
+    document.getElementById("copy-btn").classList.remove('fa-regular');
+    document.getElementById("copy-btn").classList.remove('fa-clone');
+    document.getElementById("copy-btn").classList.add('fa-solid');
+    document.getElementById("copy-btn").classList.add('fa-check');
+
+    document.getElementById("play-btn").classList.remove('btn-primary-dis'); 
   }
 
   $("#button-addon2").click(function () { 

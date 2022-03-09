@@ -26,12 +26,12 @@
                 <fieldset data-quantity="">
                     <legend>Change quantity</legend>
                 <button type="button" title="Down" class="sub" id="counterDOWN-quantity" data-type="quantity">Down</button><input name="quantity" type="number" min="4" max="8" id="counter-quantity" value="4" readonly><button type="button" title="Up" class="add" id="counterUP-quantity" data-type="quantity">Up</button></fieldset>
-                
+                <p class="card-text-inv">Link til invitation</p>
                   <div class="input-group mb-3 inviteLink">
-                <input type="text" id="inviteLink" class="form-control" placeholder="Invite link til deling" aria-label="Invite link til deling" aria-describedby="button-addon2">
-                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Kopier</button> 
+                <input type="text" id="inviteLink" class="form-control" placeholder="Invite link til deling" aria-label="Invite link til deling" aria-describedby="button-addon2" value="billetcheck.dk">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i id="copy-btn" class="fa-regular fa-clone"></i></button> 
         </div>
-            <a href="game.html" class="btn btn-primary">Play</a>
+            <a href="game.html" id="play-btn" class="btn btn-primary btn-lg btn-primary-dis">Lav Spil</a>
         </div>
         <div class="card-footer text-muted">
          <a href="">Hjælp</a>

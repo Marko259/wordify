@@ -28,9 +28,31 @@ h1{
     color: var(--red-color);
 }
 #button-addon2{
-    background-color:var(--dark-bg);
+  background-color: var(--dark-bg);
     color:var(--red-color);
 }
+
+.btn-primary{
+  background-color: var(--red-color);
+  color: white;
+  border: white;
+}
+.btn-primary:hover{
+  background-color: #b91d4f;
+  color: white;
+  border: white;
+}
+.btn-primary:active{
+  background-color: #f32f6d;
+  color: white;
+  border: white;
+}
+.btn-primary-dis{
+  pointer-events: none;
+  background-color: #80374e;
+}
+
+
 
 
   
@@ -128,11 +150,15 @@ h1{
     fieldset{
         position: absolute;
         top: 50%;
-        left: 16%;
+        left: 10%;
         }
     .card-text{
         position: relative;
         top: 2.4vh;
+    }
+    .card-text-inv{
+      position: relative;
+      top: 1.2vh;
     }
   }
   
@@ -142,4 +168,12 @@ h1{
         position: relative;
         left: 2vw;
         }
+    .card-text{
+        position: relative;
+        top: 2.4vh;
+      }
+    .card-text-inv{
+        position: relative;
+        top: 1.2vh;
+    }
   }
