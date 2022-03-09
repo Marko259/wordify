@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>Wordify - Game</title>
 </head>
+
 <body>
     <div class="position-absolute top-0 start-50 translate-middle-x">
         <h1>WORDIFY</h1>
@@ -17,10 +19,26 @@
     <div class="position-absolute top-50 start-50 translate-middle">
         <div class="card text-center">
             <div class="card-body">
-                <p class="card-text">Test</p>
-                
+                <div id="spinner">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Venter på modstander</span>
+                    </div>
+                    <p class="card-text">Venter på modstander</p>
+                </div>
+                <div id="completed" style="display: none;">
+                    <p class="card-text">tyk</p>
+                </div>
+
+            </div>
+            <div class="card-footer text-muted">
+                <a href="">Hjælp</a>
             </div>
         </div>
     </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/socket.io/client-dist/socket.io.js"></script>
+    <script src="game.js"></script>
 </body>
+
 </html>

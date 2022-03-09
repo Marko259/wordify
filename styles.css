@@ -28,6 +28,7 @@ h1{
     color: var(--red-color);
 }
 #button-addon2{
+    background-color:var(--dark-bg);
     color:var(--red-color);
 }
 
