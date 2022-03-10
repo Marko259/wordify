@@ -156,11 +156,6 @@ h1{
 
   /* PC */
 @media only screen and (min-width: 541px) {
-    /*fieldset{
-        position: relative;
-        top: 50%;
-        left: 5.5vw;
-        }*/
     .card-text{
         position: relative;
         top: 2.4vh;
@@ -173,10 +168,6 @@ h1{
   
   /* PHONE */
   @media only screen and (max-width: 540px) {
-    /*fieldset{
-        position: relative;
-        left: 2vw;
-        }*/
     .card-text{
         position: relative;
         top: 2.4vh;
