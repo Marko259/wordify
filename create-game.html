@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <title>Wordify</title>
+</head>
+<body>
+    <div class="position-absolute top-0 start-50 translate-middle-x">
+    <h1>WORDIFY</h1>
+    </div>
+
+    <div class="position-absolute top-50 start-50 translate-middle w-25">
+        <div class="card text-center">
+        <div class="card-body">
+            <p class="card-text">Ord Længde</p>
+                
+                <fieldset class="center" data-quantity="">
+                    <legend>Change quantity</legend>
+                <button type="button" title="Down" class="sub" id="counterDOWN-length" data-type="length">Down</button><input name="length" type="number" id="counter-length" min="4" max="6" value="4" readonly><button type="button" title="Up" class="add" id="counterUP-length" data-type="length">Up</button></fieldset>
+                
+                <p class="card-text">Antal Gæt</p>
+               
+                <fieldset class="center" data-quantity="">
+                    <legend>Change quantity</legend>
+                <button type="button" title="Down" class="sub" id="counterDOWN-quantity" data-type="quantity">Down</button><input name="quantity" type="number" min="4" max="8" id="counter-quantity" value="4" readonly><button type="button" title="Up" class="add" id="counterUP-quantity" data-type="quantity">Up</button></fieldset>
+                
+                <p class="card-text-inv">Link til invitation</p>
+                  <div class="input-group mb-3 inviteLink">
+                <input type="text" id="inviteLink" class="form-control" placeholder="Invite link til deling" aria-label="Invite link til deling" aria-describedby="button-addon2" value="billetcheck.dk">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i id="copy-btn" class="fa-regular fa-clone"></i></button> 
+        </div>
+            <a href="game.html" id="play-btn" class="btn btn-primary btn-lg btn-primary-dis">Lav Spil</a>
+        </div>
+        <div class="card-footer text-muted">
+         <a href="">Hjælp</a>
+        </div>
+      </div>
+    </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <!--<script type="module">
+        import QuantityInput from './quantity.js';
+        (function(){
+      let quantities = document.querySelectorAll('[data-quantity]');
+    
+      if (quantities instanceof Node) quantities = [quantities];
+      if (quantities instanceof NodeList) quantities = [].slice.call(quantities);
+      if (quantities instanceof Array) {
+        quantities.forEach(div => (div.quantity = new QuantityInput(div, 'Down', 'Up')));
+      }
+    })();
+      </script>-->
+
+</body>
+</html>
