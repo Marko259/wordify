@@ -15,7 +15,21 @@
         <h1>WORDIFY</h1>
     </div>
 
-    
+    <div class="position-absolute top-50 start-50 translate-middle w-25">
+        <div class="card text-center">
+            <div class="card-body">
+                <p class="card-text-inv">Indsæt din kode</p>
+                  <div class="input-group mb-3 inviteLink">
+                <input type="text" id="inviteLink" class="form-control" placeholder="Kode til at tilslutte et spil" aria-label="Invite link til deling" aria-describedby="button-addon2">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i id="copy-btn" class="fa-regular fa-clone"></i></button> 
+            </div>
+                <button onclick="location.href='join-game.html'" type="button" class="btn btn-primary btn-lg btn-block mt-3 w-75">Tilslut et spil</button>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="">Hjælp</a>
+            </div>
+        </div>
+    </div>
 
    
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
