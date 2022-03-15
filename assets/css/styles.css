@@ -152,28 +152,27 @@ h1{
     width: 15em
   }
 
+  .card-text{
+    position: relative;
+    top: 2.4vh;
+}
+.card-text-inv{
+  position: relative;
+  top: 1.2vh;
+}
+
  
 
   /* PC */
-@media only screen and (min-width: 541px) {
-    .card-text{
-        position: relative;
-        top: 2.4vh;
-    }
-    .card-text-inv{
-      position: relative;
-      top: 1.2vh;
-    }
+@media only screen and (min-width: 781px) {
+  .responsiveCard{
+    width: 50vw;
   }
+}
   
   /* PHONE */
-  @media only screen and (max-width: 540px) {
-    .card-text{
-        position: relative;
-        top: 2.4vh;
-      }
-    .card-text-inv{
-        position: relative;
-        top: 1.2vh;
+  @media only screen and (max-width: 780px) {
+    .responsiveCard{
+      width: 90vw;
     }
-  }
+}
