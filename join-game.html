@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     
-    <title>Wordify</title>
+    <title>Wordify - Tilslut et spil</title>
 </head>
 <body>
     <div class="position-absolute top-0 start-50 translate-middle-x">
@@ -17,13 +17,18 @@
 
     <div class="position-absolute top-50 start-50 translate-middle">
         <div class="card text-center responsiveCard">
+            <div class="position-absolute top-0 start-0">
+                <a href="index.html" id="play-btn" class="btn btn-primary mt-3 ms-3"><i class="fa fa-arrow-left"
+                    aria-hidden="true"></i></a>
+              </div>
             <div class="card-body">
+                <br><br>
                 <p class="card-text-inv">Indsæt din kode</p>
                   <div class="input-group mb-3 inviteLink">
                 <input type="text" id="inviteLink" class="form-control" placeholder="Kode til at tilslutte et spil" aria-label="Invite link til deling" aria-describedby="button-addon2">
                 <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i id="copy-btn" class="fa-regular fa-clone"></i></button> 
             </div>
-                <button onclick="location.href='join-game.html'" type="button" class="btn btn-primary btn-lg btn-block mt-3 w-75">Tilslut et spil</button>
+                <button onclick="location.href='join-game.html'" type="button" class="btn btn-primary btn-lg btn-block mt-3 w-50">Tilslut et spil</button>
             </div>
             <div class="card-footer text-muted">
                 <a href="">Hjælp</a>

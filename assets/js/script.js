@@ -2,37 +2,19 @@ $("#button-addon2").click(function () {
   copyToClipboard()
 });
 
-function copyToClipboard() {
-  /* Tager input */
-  var copyText = document.getElementById("inviteLink");
-  const button = document.getElementById("button-addon2");
 
-  /*Markere teksten i feltet*/
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile brugere */ 
-
-  /* Kopierer det til clipboarded */ 
-  navigator.clipboard.writeText(copyText.value);
-
-  /* Ændrer teksten på knappen, som confirmation */ 
-  //document.getElementById("button-addon2").innerText = "Kopieret!";
-  document.getElementById("copy-btn").classList.remove('fa-regular');
-  document.getElementById("copy-btn").classList.remove('fa-clone');
-  document.getElementById("copy-btn").classList.add('fa-solid');
-  document.getElementById("copy-btn").classList.add('fa-check');
-
-  document.getElementById("play-btn").classList.remove('btn-primary-dis'); 
+function copyToClipboard(){
+  console.time('time1');
+    var copyText = document.getElementById("inviteLink");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    document.getElementById("copy-btn").classList.remove('fa-regular');
+    document.getElementById("copy-btn").classList.remove('fa-clone');
+    document.getElementById("copy-btn").classList.add('fa-solid');
+    document.getElementById("copy-btn").classList.add('fa-check');
+    console.timeEnd('time1');
 }
-
-
-
-const element = document.getElementById('inviteLink')
-element.addEventListener("click", () => {
-	document.getElementById("play-btn").classList.remove('btn-primary-dis');
-});
-
-
- 
 
 function counterUP(type) {
     var countUP = $("#counter-" + type).val();
@@ -61,4 +43,8 @@ function counterDOWN(type) {
     type = $(this).data("type");
     counterDOWN(type)
   });
+
+
+
+
 
