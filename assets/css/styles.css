@@ -22,7 +22,7 @@ h1{
     background-color: var(--mid-bg);
 }
 .card-footer{
-    background-color: var(--light-bg)
+    background-color: var(--light-bg); 
 }
 .card-footer a{
     color: var(--red-color);
@@ -168,9 +168,11 @@ h1{
 }
 .create-game-card{
   height: 80vh;
-  
 }
 
+.hide-on-mobile{
+  display: none;
+}
 
 @keyframes bounce {
   0% {
@@ -192,11 +194,21 @@ h1{
   .responsiveCard{
     width: 50vw;
   }
+  .hide-on-mobile{
+    display: block;
+  }
 }
   
   /* PHONE */
   @media only screen and (max-width: 780px) {
     .responsiveCard{
       width: 90vw;
+    }
+    .hide-on-mobile{
+      display: none;
+    }
+    .game-card{
+      width: 90vw;
+      height: 90vh;
     }
 }

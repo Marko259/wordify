@@ -1,3 +1,36 @@
+<?php
+
+include 'backend/connection.php';
+include 'backend/handling.php';
+
+// if (isset($_POST['submit'])) {
+//   $length = $_POST['length'];
+//   $guesses = $_POST['guesses'];
+//   $player_1 = $_POST['player_1'];
+//   $uuid = $_POST['uuid'];
+
+//   $database = new DB;
+//   $db = $database->connection()
+
+//   $game = new multiplayer($db);
+//   $game->create_game($uuid, $length, $guesses, $player_1);
+// }
+
+$database = new Database;
+$db = $database->connection();
+
+$game = new multiplayer($db);
+$uuid = $game->uuid();
+$newgame = $game->create_game($uuid);
+
+echo $newgame;
+
+// if($newgame != $uuid) {
+//   die('Der skete en fejl. Prøv at genlæs siden.');
+// }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,23 +102,3 @@
 </body>
 
 </html>
-
-<?php
-
-include('../backend/handling.php');
-include('../db/connection.php');
-
-if (isset($_POST['submit'])) {
-  $length = $_POST['length'];
-  $guesses = $_POST['guesses'];
-  $player_1 = $_POST['player_1'];
-  $uuid = $_POST['uuid'];
-
-  $database = new DB;
-  $db = $database->connection();
-
-  $game = new multiplayer($db);
-  $game->create_game($uuid, $length, $guesses, $player_1);
-}
-
-?>
