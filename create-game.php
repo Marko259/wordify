@@ -3,31 +3,16 @@
 include 'backend/connection.php';
 include 'backend/handling.php';
 
-// if (isset($_POST['submit'])) {
-//   $length = $_POST['length'];
-//   $guesses = $_POST['guesses'];
-//   $player_1 = $_POST['player_1'];
-//   $uuid = $_POST['uuid'];
-
-//   $database = new DB;
-//   $db = $database->connection()
-
-//   $game = new multiplayer($db);
-//   $game->create_game($uuid, $length, $guesses, $player_1);
-// }
-
 $database = new Database;
 $db = $database->connection();
 
-$game = new multiplayer($db);
+$game = new Multiplayer($db);
 $uuid = $game->uuid();
-$newgame = $game->create_game($uuid);
 
-echo $newgame;
+if($_POST): $newgame = $game->create_game($uuid, $_POST['length'], $_POST['guesses'], $_POST['player_1']); endif;
 
-// if($newgame != $uuid) {
-//   die('Der skete en fejl. Prøv at genlæs siden.');
-// }
+if($newgame): header("Location: game.php?id=$newgame"); endif;
+
 
 ?>
 
@@ -52,7 +37,7 @@ echo $newgame;
         <a href="index.html" id="play-btn" class="btn btn-primary mt-3 ms-3"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
       </div>
       <div class="card-body">
-        <form action="" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
           <div align="center">
           <p class="card-text w-25">Ordlængde</p>
           </div>
@@ -67,7 +52,7 @@ echo $newgame;
 
           <fieldset class="center" data-quantity="">
             <legend>Change quantity</legend>
-            <button type="button" title="Down" class="sub" id="counterDOWN-quantity" data-type="quantity">Down</button><input name="quantity" type="number" min="4" max="8" id="counter-quantity" value="4" readonly><button type="button" title="Up" class="add" id="counterUP-quantity" data-type="quantity">Up</button>
+            <button type="button" title="Down" class="sub" id="counterDOWN-quantity" data-type="quantity">Down</button><input name="guesses" type="number" min="4" max="8" id="counter-quantity" value="4" readonly><button type="button" title="Up" class="add" id="counterUP-quantity" data-type="quantity">Up</button>
           </fieldset>
 
           <p class="card-text-inv">Indtast selvvalgt brugernavn</p>
@@ -91,7 +76,7 @@ echo $newgame;
     <br>
     <div class="collapse" id="helpCard">
   <div class="card card-body">
-    Markus er liiiidt tyk o_o
+    Allan er liiiidt tyk o_o
   </div>
 </div>
   </div>

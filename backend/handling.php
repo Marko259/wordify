@@ -1,29 +1,51 @@
 <?php
-class multiplayer
+class Multiplayer
 {
-    private $conn;
-    private $table_name = "games";
+    private $conn; // Definerer forbindelsen
+    private $table_name = "games"; // Definerer tabelnavnet
 
     public function __construct($db)
     {
-        $this->conn = $db;
+        $this->conn = $db; // Definerer forbindelsen
     }
 
-    public function create_game($uuid)
+    public function create_game($id, $length, $guesses, $player_1)
     {
         if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
+            die("Connection failed: " . $this->conn->connect_error); // Hvis forbindelsen ikke kan oprettes sendes fejlbesked
         }
-        $query = "INSERT INTO $this->table_name SET id=:id";
 
-        $stmt = $this->conn->prepare($query);
+        $query = "INSERT INTO " . $this->table_name . " (id, word_length, guesses, player_1) VALUES (?, ?, ?, ?)"; // Definerer query
 
-        $stmt->bindParam(":id", $uuid);
+        $stmt = $this->conn->prepare($query); // Konverter query til SQL statement
 
-        if ($stmt->execute()) {
-            return $uuid;
-        } else {
-            return 'Nope';
+        try {
+            if ($stmt->execute([$id, $length, $guesses, $player_1])) { // Hvis query'en kører
+                return $id; // Hvis query'en var successfuld returnes id'et
+            }
+        } catch (Exception $e) { 
+            echo $e->getMessage();// Hvis query ikke kan udføres sendes fejlbesked
+        }
+    }
+
+    public function delete_game($id)
+    {
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error); // Hvis forbindelsen ikke kan oprettes sendes fejlbesked
+        }
+
+        $query = "DELETE FROM " . $this->table_name . " WHERE id=:id"; // Definerer query
+
+        $stmt = $this->conn->prepare($query); // Konverter query til SQL statement
+
+        $stmt->bindParam(":id", $id); // Bind parametre
+
+        try {
+            if ($stmt->execute()) { 
+                return true; // Hvis query'en var successfuld returnes true
+            }
+        } catch (Exception $e) { 
+            echo $e->getMessage();// Hvis query ikke kan udføres sendes fejlbesked
         }
     }
 

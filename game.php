@@ -13,120 +13,29 @@
 </head>
 
 <body>
-
-
-
-
-
-    <div class="container">
-
-
-        <div class="GAME"></div>
-        <div class="card game-card">
-            <div class="card-body">
-                GAME
-            </div>
-          </div>
-
-        
-        <div class="Chat hide-on-mobile">
-            <div class="card chat-card">
-                <div class="card-body">
-                  CHAT
+    <div class="row">
+        <div class="justify-content-between">
+            <section class="game-opp">
+                <div class="game-window">
+                    <div class="card border-primary border-3 text-center">
+                        <div class="card-body">
+                            GAME
+                        </div>
+                    </div>
                 </div>
-              </div>
-        </div>
 
 
-
-
-        <div class="Stats hide-on-mobile">
-            <div class="card stats-card">
-                <div class="card-body">
-                  Stats
+                <div class="opp-window hide-on-mobile">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            OPP GAME
+                        </div>
+                    </div>
                 </div>
-              </div>
+            </section>
         </div>
-
-
-
-        <div class="Opp hide-on-mobile">
-            <div class="card opp-card">
-                <div class="card-body">
-                  Modstander
-                </div>
-              </div>
-        </div>
-
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    <!-- GAME VINDUE
-    <section>
-        <div class="card game-card">
-            <div class="card-body">
-              GAME VINDUE
-            </div>
-          </div>
-
-    </section>
-
-    <!--STATS
-    <section class="hide-on-mobile">
-        <div class="card stats-card">
-            <div class="card-body">
-              Stats
-            </div>
-          </div>
-
-    </section>
-
-    <!--CHAT
-    <section class="hide-on-mobile">
-        <div class="card chat-card">
-            <div class="card-body">
-              CHAT
-            </div>
-          </div>
-
-    </section>
-
-
-    <!--Modtander
-    <section class="hide-on-mobile">
-        <div class="card opp-card">
-            <div class="card-body">
-              Modstander
-            </div>
-          </div>
-
-
-    </section> -->
 
 
 
