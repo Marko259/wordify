@@ -9,7 +9,7 @@ $db = $database->connection();
 $game = new Multiplayer($db);
 $id = $game->guid();
 
-if($_POST): $newgame = $game->create_game($id, $_POST['length'], $_POST['guesses'], $_POST['player_1']); endif;
+if($_POST): $newgame = $game->create_game($_POST['id'], $_POST['length'], $_POST['guesses'], $_POST['player_1']); endif;
 
 if($newgame): header("Location: game.php?id=$newgame"); endif;
 
@@ -66,6 +66,7 @@ if($newgame): header("Location: game.php?id=$newgame"); endif;
             <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i id="copy-btn" class="fa-regular fa-clone"></i></button>
 
           </div>
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
           <button id="play-btn" class="btn btn-primary btn-lg" type="submit">Lav Spil</button>
         </form>
       </div>

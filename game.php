@@ -36,15 +36,15 @@ if(!is_object($game)) {
                         <div class="card-body">
                             <?php echo $game->player_1;?> 
                             <div class="guess-grid mt-3 mb-3">
-                                <div class="tile">M</div>
-                                <div class="tile">A</div>
-                                <div class="tile">R</div>
-                                <div class="tile">K</div>
-                                <div class="tile">U</div>
-                                <div class="tile" data-state="active"></div>
-                                <div class="tile" data-state="wrong"></div>
-                                <div class="tile" data-state="wrong-location"></div>
-                                <div class="tile" data-state="correct"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
                                 <div class="tile"></div>
                                 <div class="tile"></div>
                                 <div class="tile"></div>
@@ -113,7 +113,7 @@ if(!is_object($game)) {
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/socket.io/client-dist/socket.io.js"></script>
-    <!-- <script src="assets/js/game.js"></script> -->
+    <script src="assets/js/game.js" defer></script>
 </body>
 
 </html>
