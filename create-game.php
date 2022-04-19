@@ -7,9 +7,9 @@ $database = new Database;
 $db = $database->connection();
 
 $game = new Multiplayer($db);
-$uuid = $game->uuid();
+$id = $game->guid();
 
-if($_POST): $newgame = $game->create_game($uuid, $_POST['length'], $_POST['guesses'], $_POST['player_1']); endif;
+if($_POST): $newgame = $game->create_game($id, $_POST['length'], $_POST['guesses'], $_POST['player_1']); endif;
 
 if($newgame): header("Location: game.php?id=$newgame"); endif;
 
@@ -60,9 +60,9 @@ if($newgame): header("Location: game.php?id=$newgame"); endif;
               <input type="text" name="player_1" class="form-control" placeholder="Brugernavn" maxlength="16">
           </div>
 
-          <p class="card-text-inv">Kode til invitation</p>
+          <p class="card-text-inv">Link til invitation</p>
           <div class="input-group mb-3 inviteLink">
-            <input type="text" id="inviteLink" class="form-control" placeholder="Kode til modstander" aria-label="Kode til modstander" aria-describedby="button-addon2" value="QWMERM12" readonly>
+            <input type="text" id="inviteLink" class="form-control" placeholder="Link til modstander" aria-label="Link til modstander" aria-describedby="button-addon2" value="<?php echo 'http://wordify.dk/join-game.php?id=' . $id; ?>" readonly>
             <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i id="copy-btn" class="fa-regular fa-clone"></i></button>
 
           </div>

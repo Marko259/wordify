@@ -1,18 +1,3 @@
-<?php
-
-include_once 'backend/connection.php';
-include_once 'backend/handling.php';
-
-$database = new Database;
-$db = $database->connection();
-
-$multiplayer = new Multiplayer($db);
-$game = $multiplayer->get_game($_GET['id']);
-if(!is_object($game)) {
-    die("Error: Game not found");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,17 +19,21 @@ if(!is_object($game)) {
                 <div class="game-window">
                     <div class="card border-primary border-3 text-center">
                         <div class="card-body">
-                            <?php echo $game->player_1;?> 
-                            <div class="guess-grid mt-3 mb-3">
-                                <div class="tile">M</div>
-                                <div class="tile">A</div>
-                                <div class="tile">R</div>
-                                <div class="tile">K</div>
-                                <div class="tile">U</div>
-                                <div class="tile" data-state="active"></div>
-                                <div class="tile" data-state="wrong"></div>
-                                <div class="tile" data-state="wrong-location"></div>
-                                <div class="tile" data-state="correct"></div>
+                            <div class="guess-grid">
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
+                                <div class="tile"></div>
                                 <div class="tile"></div>
                                 <div class="tile"></div>
                                 <div class="tile"></div>
@@ -67,7 +56,7 @@ if(!is_object($game)) {
                                 <div class="tile"></div>
                                 <div class="tile"></div>
                             </div>
-                           
+                            GAME
                         </div>
                     </div>
                 </div>
@@ -76,7 +65,7 @@ if(!is_object($game)) {
                 <div class="opp-window hide-on-mobile">
                     <div class="card text-center">
                         <div class="card-body">
-                            <?php echo $game->player_2;?> 
+                            OPP GAME
                         </div>
                     </div>
                 </div>
@@ -113,7 +102,7 @@ if(!is_object($game)) {
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/socket.io/client-dist/socket.io.js"></script>
-    <!-- <script src="assets/js/game.js"></script> -->
+    <script src="index.js"></script>
 </body>
 
 </html>

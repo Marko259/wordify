@@ -17,6 +17,44 @@
     display: none;
   }
 
+.guess-grid{
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  flex-grow: 1;
+  grid-template-columns: repeat(5, 4em);
+  grid-template-rows: repeat(6, 4em);
+  gap: .25em;
+}
+
+.tile{
+  font-size: 2em;
+  color: white;
+  border: 0.1em solid #ed185b7f;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+.tile[data-state="active"]{
+  border-color: #ED185A;
+}
+.tile[data-state="wrong"]{
+  border: none;
+  background-color: #4a5465;
+}
+.tile[data-state="wrong-location"]{
+  border: none;
+  background-color:  #B59F3B;
+}
+.tile[data-state="correct"]{
+  border: none;
+  background-color: #538D4E;
+}
+
+
   /* PC */
   @media only screen and (min-width: 981px) {
     .hide-on-mobile{
