@@ -35,7 +35,7 @@ if(!is_object($game)) {
                     <div class="card border-primary border-3 text-center">
                         <div class="card-body">
                             <?php echo $game->player_1;?> 
-                            <div class="guess-grid mt-3 mb-3">
+                            <div class="guess-grid mt-3 mb-3" data-guess-grid>
                                 <div class="tile"></div>
                                 <div class="tile"></div>
                                 <div class="tile"></div>

@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include 'backend/connection.php';
 include 'backend/handling.php';
 
@@ -8,17 +11,13 @@ $db = $database->connection();
 $multiplayer = new Multiplayer($db);
 if (isset($_GET['id'])) {
     $game = $multiplayer->get_game($_GET['id']);
-} elseif (!$game || $_POST) {
+} elseif (!$game && $_POST) {
     $game = $multiplayer->get_game($_POST['game']);
 }
 
 if($_POST){
-    try {
-        $multiplayer->update_game($game->id, false, false, $_POST['player_2']);
-        header("Location: game.php?id=$game->id");
-    } catch (Exception $e) {
-        echo $e->getMessage();
-    }
+    $newgame = $multiplayer->update_game($game->id, $game->word_length, $game->guesses, $game->player_1, $_POST['player_2']);
+    if($newgame == true): header("Location: game.php?id=$game->id"); else: echo $newgame; endif;
 }
 ?>
 

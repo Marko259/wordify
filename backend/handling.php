@@ -28,13 +28,13 @@ class Multiplayer
         }
     }
 
-    public function update_game($id, $word = false, $guesses = false, $player_1 = false, $player_2 = false)
+    public function update_game($id, $word, $guesses, $player_1, $player_2)
     {
         if ($this->conn->connect_error) {
             die("Connection failed: " . $this->conn->connect_error); // Hvis forbindelsen ikke kan oprettes sendes fejlbesked
         }
 
-        $query = "UPDATE " . $this->table_name . " SET word = ?, guesses = ?, player_1 = ?, player_2 = ? WHERE id = ?"; // Definerer query
+        $query = "UPDATE " . $this->table_name . " SET word_length = ?, guesses = ?, player_1 = ?, player_2 = ? WHERE id = ?"; // Definerer query
 
         $stmt = $this->conn->prepare($query); // Konverter query til SQL statement
 
