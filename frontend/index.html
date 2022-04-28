@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/game.css">
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/all.min.css">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/game.css">
     <title>Wordify - Game</title>
 </head>
 
@@ -99,10 +99,35 @@
             </div>
         </div>
     </div> -->
-    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../node_modules/socket.io/client-dist/socket.io.js"></script>
-    <script src="index.js"></script>
+    <script src="assets/jquery.min.js"></script>
+    <script src="assets/bootstrap.min.js"></script>
+    <script src="assets/socket.io.js"></script>
+    <script>
+        const socket = io('http://localhost:3000');
+        socket.on('init', handleInit);
+
+        function handleInit(data) {
+            console.log(data);
+        }
+        // const socket = new WebSocket("ws://localhost:3000");
+
+        // socket.addEventListener("open", function(event) {
+        //     socket.send(JSON.stringify({
+        //         type: "Hello from client",
+        //         content: [3, '4']
+        //     }));
+        // });
+
+        // socket.addEventListener("message", ({data}) => {
+        //     const packet = JSON.parse(data);
+
+        //     switch (packet.type) {
+        //         case "Hello from server":
+        //             break;
+        //     }
+        // });
+    </script>
+    <!-- <script src="index.cjs"></script> -->
 </body>
 
 </html>

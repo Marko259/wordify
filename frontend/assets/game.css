@@ -71,12 +71,6 @@
   padding: .75em;
   border-radius: .25em;
   opacity: 1;
-  transition: opacity 500ms ease-in-out;
-  margin-bottom: .5em;
-}
-
-.alert:last-child{
-  margin-bottom: 0;
 }
 
 .alert.hide{

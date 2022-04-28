@@ -13,7 +13,10 @@ $.getJSON("./assets/words/6 - da_DK.json", function(data){
     dic6 = data    
 });
 
+const WORD_LENGTH = 5;
+const alertContainer = document.querySelector("[data-alert-container]");
 const guessGrid = document.querySelector("[data-guess-grid]");
+const targetWord = "SLOPE"
 
 startInteraction()
 function startInteraction(){
@@ -26,7 +29,7 @@ function stopInteraction(){
 
 function handleKeyPress(e){
     if(e.key === "Enter"){
-        submiteGuess()
+        submitGuess()
         return
     }
 
@@ -42,8 +45,46 @@ function handleKeyPress(e){
 }
 
 function pressKey(key){
+    const activeTiles = getActiveTiles()
+    if (activeTiles.length >= WORD_LENGTH) return
     const nextTile = guessGrid.querySelector(":not([data-letter])")
     nextTile.dataset.letter = key.toLowerCase()
     nextTile.textContent = key
     nextTile.dataset.state = "active"
+}
+
+function deleteKey(){
+    const activeTiles = getActiveTiles()
+    const lastTile = activeTiles[activeTiles.length - 1]
+    if (lastTile == null) return
+    lastTile.textContent = ""
+    delete lastTile.dataset.state
+    delete lastTile.dataset.letter
+}
+
+function submitGuess(){
+    const activeTiles = [...getActiveTiles()]
+    if (activeTiles.length !== WORD_LENGTH){
+        showAlert("Ikke lang nok")
+        return
+    }
+}
+
+function getActiveTiles(){
+    return guessGrid.querySelectorAll('[data-state="active"]')
+}
+
+function showAlert(message, duration = 1000){
+    const alert = document.createElement("div")
+    alert.textContent = message
+    alert.classList.add("alert")
+    alertContainer.prepend(alert)
+    if (duration == null) return
+        
+    setTimeout(() => {
+        alert.classList.add("hide")
+        alert.addEventListener("transitionend", () =>{
+            alert.remove()
+        })
+    }, duration);
 }

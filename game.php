@@ -28,6 +28,7 @@ if(!is_object($game)) {
 </head>
 
 <body>
+    <div class="alert-container" data-alert-container></div>
     <div class="row">
         <div class="justify-content-between">
             <section class="game-opp">
