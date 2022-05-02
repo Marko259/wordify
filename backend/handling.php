@@ -47,6 +47,42 @@ class Multiplayer
         }
     }
 
+    public function update($id, $type, $attr)
+    {
+        if($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error); // Hvis forbindelsen ikke kan oprettes sendes fejlbesked
+        }
+
+        $query = "UPDATE " . $this->table_name . " SET $type = ? WHERE id = ?"; // Definerer query
+        $stmt = $this->conn->prepare($query); // Konverter query til SQL statement
+
+        try {
+            if ($stmt->execute([$attr, $id])) { // Hvis query'en kører
+                return $this->get_game($id); // Hvis query'en var successfuld returnes true
+            }
+        } catch (Exception $e) { 
+            echo $e->getMessage();// Hvis query ikke kan udføres sendes fejlbesked
+        }
+    }
+
+    public function reset($id, $player_2 = null, $player_1_word = null, $player_2_word = null, $player_1_complete = null, $player_2_complete = null) 
+    {
+        if($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error); // Hvis forbindelsen ikke kan oprettes sendes fejlbesked
+        }
+
+        $query = "UPDATE " . $this->table_name . " SET player_2 = ?, player_1_word = ?, player_2_word = ?, player_1_complete = ?, player_2_complete = ? WHERE id = ?"; // Definerer query
+        $stmt = $this->conn->prepare($query); // Konverter query til SQL statement
+
+        try {
+            if ($stmt->execute([$player_2, $player_1_word, $player_2_word, $player_1_complete, $player_2_complete, $id])) { // Hvis query'en kører
+                return $this->get_game($id); // Hvis query'en var successfuld returnes true
+            }
+        } catch (Exception $e) { 
+            echo $e->getMessage();// Hvis query ikke kan udføres sendes fejlbesked
+        }
+    }
+
     public function delete_game($id)
     {
         if ($this->conn->connect_error) {
@@ -85,7 +121,7 @@ class Multiplayer
                 return $stmt->fetch(PDO::FETCH_OBJ); // Hvis query'en var successfuld returnes resultatet i form af objekt
             }
         } catch (Exception $e) { 
-            echo $e->getMessage();// Hvis query ikke kan udføres sendes fejlbesked
+            echo $e->getMessage(); // Hvis query ikke kan udføres sendes fejlbesked
         }
     }
 

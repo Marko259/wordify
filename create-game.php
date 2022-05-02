@@ -11,8 +11,11 @@ $id = $game->guid();
 
 if($_POST): $newgame = $game->create_game($_POST['id'], $_POST['length'], $_POST['guesses'], $_POST['player_1']); endif;
 
-if($newgame): header("Location: game.php?id=$newgame"); endif;
-
+if($newgame){
+  session_start(); 
+  $_SESSION['player'] = 'player_1';
+  header("Location: setup.php?id=$newgame"); 
+}
 
 ?>
 

@@ -14,7 +14,13 @@ if (isset($_GET['id'])) {
 
 if($_POST){
     $newgame = $multiplayer->update_game($game->id, $game->word_length, $game->guesses, $game->player_1, $_POST['player_2']);
-    if($newgame == true): header("Location: game.php?id=$game->id"); else: echo $newgame; endif;
+    if($newgame == true){
+        session_start();
+        $_SESSION['player'] = 'player_2';
+        header("Location: setup.php?id=$game->id");
+    } else {
+        echo $newgame;
+    }
 }
 ?>
 
@@ -47,9 +53,7 @@ if($_POST){
                     </div>
                     <p class="card-text-inv">Indsæt din kode</p>
                     <div class="input-group mb-3 inviteLink">
-                        <input type="text" id="inviteLink" name="game" class="form-control" placeholder="Kode til at tilslutte et spil" aria-label="Invite link til deling" value="<?php if (is_object($game)) : echo $game->id;
-                                                                                                                                                                        else : echo null;
-                                                                                                                                                                        endif ?>" aria-describedby="button-addon2">
+                        <input type="text" id="inviteLink" name="game" class="form-control" placeholder="Kode til at tilslutte et spil" aria-label="Invite link til deling" value="<?php if (is_object($game)) : echo $game->id; else : echo null; endif ?>" aria-describedby="button-addon2">
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block mt-3 w-50">Tilslut et spil</button>
                 </form>

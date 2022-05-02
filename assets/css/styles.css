@@ -32,6 +32,7 @@ h1{
     color:var(--red-color);
 }
 
+
 .btn-primary{
   background-color: var(--red-color);
   color: white;
@@ -173,6 +174,7 @@ h1{
 .hide-on-mobile{
   display: none;
 }
+
 
 @keyframes bounce {
   0% {

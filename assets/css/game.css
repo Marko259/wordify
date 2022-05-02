@@ -8,6 +8,10 @@
     border-color: #ED185A!important;
 }
 
+.highlight-color{
+  color: #ED185A!important;
+}
+
 .opp-window{
     float:right;
     width: 35vw;
@@ -22,8 +26,6 @@
   justify-content: center;
   align-content: center;
   flex-grow: 1;
-  grid-template-columns: repeat(5, 4em);
-  grid-template-rows: repeat(6, 4em);
   gap: .25em;
 }
 
@@ -37,6 +39,7 @@
   justify-content: center;
   align-items: center;
   user-select: none;
+  transition: transform 250ms linear;
 }
 .tile[data-state="active"]{
   border-color: #ED185A;
@@ -52,6 +55,10 @@
 .tile[data-state="correct"]{
   border: none;
   background-color: #538D4E;
+}
+
+.tile.flip{
+  transform: rotateX(90deg);
 }
 
 .alert-container{
@@ -81,6 +88,10 @@
 
 .alert.hide{
   opacity: 0;
+}
+
+.setup-card{
+  width: 25em;
 }
 
 
