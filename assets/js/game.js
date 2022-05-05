@@ -1,18 +1,18 @@
 var dic = [];
 if (word_length == 4) {
-    $.getJSON("./assets/words/4 - da_DK.json", function(data) {
+    $.getJSON("./assets/words/4-words.json", function(data) {
         data.forEach(element => {
             dic.push(element)
         });
     });
 } else if (word_length == 5) {
-    $.getJSON("./assets/words/5 - da_DK.json", function(data) {
+    $.getJSON("./assets/words/5-words.json", function(data) {
         data.forEach(element => {
             dic.push(element)
         });
     });
 } else if (word_length == 6) {
-    $.getJSON("./assets/words/6 - da_DK.json", function(data) {
+    $.getJSON("./assets/words/6-words.json", function(data) {
         data.forEach(element => {
             dic.push(element)
         });
